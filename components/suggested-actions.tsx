@@ -16,29 +16,39 @@ interface SuggestedActionsProps {
 function PureSuggestedActions({ chatId, append }: SuggestedActionsProps) {
   const suggestedActions = [
     {
-      title: 'What are the advantages',
-      label: 'of using Next.js?',
-      action: 'What are the advantages of using Next.js?',
+      title: 'San Francisco',
+      action: 'San Francisco',
+      state: 'CA',
     },
     {
-      title: 'Write code to',
-      label: `demonstrate djikstra's algorithm`,
-      action: `Write code to demonstrate djikstra's algorithm`,
+      title: 'Los Angeles',
+      action: 'Los Angeles',
+      state: 'CA',
     },
     {
-      title: 'Help me write an essay',
-      label: `about silicon valley`,
-      action: `Help me write an essay about silicon valley`,
+      title: 'Santa Rosa',
+      action: 'Santa Rosa',
+      state: 'CA',
     },
     {
-      title: 'What is the weather',
-      label: 'in San Francisco?',
-      action: 'What is the weather in San Francisco?',
+      title: 'San Diego',
+      action: 'San Diego',
+      state: 'CA',
+    },
+    {
+      title: 'Sacramento',
+      action: 'Sacramento',
+      state: 'CA',
+    },
+    {
+      title: 'Santa Barbara',
+      action: 'Santa Barbara',
+      state: 'CA',
     },
   ];
 
   return (
-    <div className="grid sm:grid-cols-2 gap-2 w-full">
+    <div className="grid sm:grid-cols-1 gap-2 w-full">
       {suggestedActions.map((suggestedAction, index) => (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -58,12 +68,10 @@ function PureSuggestedActions({ chatId, append }: SuggestedActionsProps) {
                 content: suggestedAction.action,
               });
             }}
-            className="text-left border rounded-xl px-4 py-3.5 text-sm flex-1 gap-1 sm:flex-col w-full h-auto justify-start items-start"
+            className="text-left border rounded-xl px-2.5 py-2 text-sm flex-1 gap-1 flex w-full h-auto justify-between items-start"
           >
             <span className="font-medium">{suggestedAction.title}</span>
-            <span className="text-muted-foreground">
-              {suggestedAction.label}
-            </span>
+            <span className="text-muted-foreground">{suggestedAction.state}</span>
           </Button>
         </motion.div>
       ))}
