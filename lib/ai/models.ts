@@ -9,15 +9,15 @@ export interface Model {
 
 export const models: Array<Model> = [
   {
-    id: 'gpt-4o-mini',
-    label: 'GPT 4o mini',
-    apiIdentifier: 'gpt-4o-mini',
-    description: 'Small model for fast, lightweight tasks',
+    id: 'gemini-2.0-flash-experimental',
+    apiIdentifier: 'gemini-2.0-flash-experimental',
+    label: 'Gemini 2.0 flash experimental',
+    description: 'For complex, multi-step tasks',
   },
   {
-    id: 'gpt-4o',
-    label: 'GPT 4o',
-    apiIdentifier: 'gpt-4o',
+    id: 'gemini-1.5-pro-latest',
+    label: 'Gemini 1.5 pro latest',
+    apiIdentifier: 'gemini-1.5-pro-latest',
     description: 'For complex, multi-step tasks',
   },
 ] as const;

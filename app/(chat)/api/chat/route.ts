@@ -9,7 +9,7 @@ import {
 import { z } from 'zod';
 
 import { auth } from '@/app/(auth)/auth';
-import { customModel, imageGenerationModel } from '@/lib/ai';
+import { customModel } from '@/lib/ai';
 import { models } from '@/lib/ai/models';
 import {
   codePrompt,
@@ -207,20 +207,23 @@ export async function POST(request: Request) {
 
                 dataStream.writeData({ type: 'finish', content: '' });
               } else if (kind === 'image') {
-                const { image } = await experimental_generateImage({
-                  model: imageGenerationModel,
-                  prompt: title,
-                  n: 1,
-                });
+                return {
+                  error: 'Updating images is not supported yet',
+                };
+                // const { image } = await experimental_generateImage({
+                //   model: imageGenerationModel,
+                //   prompt: title,
+                //   n: 1,
+                // });
 
-                draftText = image.base64;
+                // draftText = image.base64;
 
-                dataStream.writeData({
-                  type: 'image-delta',
-                  content: image.base64,
-                });
+                // dataStream.writeData({
+                //   type: 'image-delta',
+                //   content: image.base64,
+                // });
 
-                dataStream.writeData({ type: 'finish', content: '' });
+                // dataStream.writeData({ type: 'finish', content: '' });
               }
 
               if (session.user?.id) {
@@ -327,20 +330,23 @@ export async function POST(request: Request) {
 
                 dataStream.writeData({ type: 'finish', content: '' });
               } else if (document.kind === 'image') {
-                const { image } = await experimental_generateImage({
-                  model: imageGenerationModel,
-                  prompt: description,
-                  n: 1,
-                });
+                return {
+                  error: 'Updating images is not supported yet',
+                };
+                // const { image } = await experimental_generateImage({
+                //   model: imageGenerationModel,
+                //   prompt: description,
+                //   n: 1,
+                // });
 
-                draftText = image.base64;
+                // draftText = image.base64;
 
-                dataStream.writeData({
-                  type: 'image-delta',
-                  content: image.base64,
-                });
+                // dataStream.writeData({
+                //   type: 'image-delta',
+                //   content: image.base64,
+                // });
 
-                dataStream.writeData({ type: 'finish', content: '' });
+                // dataStream.writeData({ type: 'finish', content: '' });
               }
 
               if (session.user?.id) {
